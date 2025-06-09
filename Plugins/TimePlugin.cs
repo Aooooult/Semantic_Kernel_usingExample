@@ -1,4 +1,5 @@
 using Microsoft.SemanticKernel;
+using System;
 
 namespace ConsoleApp1.Plugins;
 

@@ -16,14 +16,13 @@ public class FilePlugin
             Directory.CreateDirectory(_rootFolder);
         }
     }
-
-    // 🛡 Метод для защиты от выхода за пределы корневой папки
+    
     private string SecurePath(string relativePath)
     {
         string fullPath = Path.GetFullPath(Path.Combine(_rootFolder, relativePath));
 
         if (!fullPath.StartsWith(_rootFolder))
-            throw new UnauthorizedAccessException("🚫 Недопустимый путь: выход за пределы разрешённой папки.");
+            throw new UnauthorizedAccessException("Недопустимый путь: выход за пределы разрешённой папки.");
 
         return fullPath;
     }

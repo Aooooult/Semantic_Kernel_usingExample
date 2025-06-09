@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Logging; // добавляем логи (для отслеживания действий программы) (необязательно)
-using Microsoft.SemanticKernel; // для подключения SemanticKernel
-using Microsoft.SemanticKernel.Connectors.OpenAI; // подсоединение OpenAI
-using System; // базовые функции
-using System.Threading.Tasks; // asyc await
-using System.Text; // для Encoding
-using Microsoft.SemanticKernel.ChatCompletion; // интерфейсы для чата (IChatCompletionService, ChatHistory)
+﻿using Microsoft.Extensions.Logging; 
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Connectors.OpenAI; 
+using System; 
+using System.Threading.Tasks; 
+using System.Text;
+using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ConsoleApp1;
@@ -27,16 +27,17 @@ public class Program
         // Add enterprise components
         //builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Trace));
         
-        // Регистрируем фильтр вызова функций
+        // Registering the function invocation filter
         builder.Services.AddSingleton<IAutoFunctionInvocationFilter, AutoInvocationFilter>();
         
-        //добавляем плагин на время
+        // Adding the time and file plugin
         builder.Plugins.AddFromType<TimePlugin>();
         builder.Plugins.AddFromType<FilePlugin>();
         
         Kernel kernel = builder.Build();
 		var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>(); // используем чат сервис
 
+        // simple chat program
         
         /*Console.Write("Введите вопрос: ");
         string input = Console.ReadLine() ?? "";
@@ -53,7 +54,7 @@ public class Program
 
 
 		var history = new ChatHistory();
-        history.AddSystemMessage("Ты — дружелюбный помощник 🤖. Всегда отвечай на русском языке и помогай с программированием.");
+        history.AddSystemMessage("Ты — дружелюбный помощник. Всегда отвечай на русском языке и помогай с программированием.");
 		// prompt engineering
 		Console.OutputEncoding = Encoding.UTF8;
 		// Initiate a back-and-forth chat

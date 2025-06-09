@@ -1,4 +1,7 @@
 using Microsoft.SemanticKernel;
+using System.Threading.Tasks;
+using System;
+using System.Linq;
 
 namespace ConsoleApp1;
 
