@@ -14,11 +14,11 @@ using ConsoleApp1.Plugins;
 
 public class Program
 {
-    private const string azureOpenAiEndpoint = "https://anast-mbjamgb5-eastus2.openai.azure.com";
+    private const string azureOpenAiEndpoint = "";
 
     private const string azureOpenAiKey =
-        "CBM6iGtmzTBuEVuVAYLVyQANFinakZ3NgnmUQ81DVRRxALNhg5HhJQQJ99BFACHYHv6XJ3w3AAAAACOGqOpS";
-    private const string azureOpenAiDeployement = "gpt-4o";
+        "";
+    private const string azureOpenAiDeployement = "";
     static async Task Main()
     {
         // Create a kernel with Azure OpenAI chat completion
